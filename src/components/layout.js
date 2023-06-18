@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Container from "react-bootstrap/Container";
 
 import Navigation from "./navigation";
 
 const Layout = ({ children }) => (
   <>
     <Navigation />
-    {children}
+    <Container>{children}</Container>
   </>
 );
 

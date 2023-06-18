@@ -5,8 +5,9 @@
  */
 
 import * as React from "react";
+import Layout from "./src/components/layout";
 
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
   setHeadComponents([
     <title key="site-title">Darkmist Tools</title>,
     <link key="favicon" rel="icon" type="image/x-icon" href="/favicon.ico" />,
@@ -17,6 +18,32 @@ export const onRenderBody = ({ setHeadComponents }) => {
       crossOrigin="anonymous"
       key="bootstrap-css"
     />,
-    <meta name="viewport" content="width=device-width, initial-scale=1" />,
   ]);
+  setPreBodyComponents([
+    <script
+      key="firebase-source"
+      src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"
+    ></script>,
+    <script
+      key="firebase-config"
+      dangerouslySetInnerHTML={{
+        __html: `
+          var config = {
+            apiKey: 'AIzaSyAv3C21gFPUqwE6hK1flhfK6_t-UM8dUe4',
+            authDomain: 'dark-mists-tools.firebaseapp.com',
+            databaseURL: 'https://dark-mists-tools.firebaseio.com',
+            projectId: 'dark-mists-tools',
+            storageBucket: 'dark-mists-tools.appspot.com',
+            messagingSenderId: '644570721333'
+          };
+
+          firebase.initializeApp(config);
+          firebase.database.enableLogging(false, false);`,
+      }}
+    ></script>,
+  ]);
+};
+
+export const wrapPageElement = ({ element, props }) => {
+  return <Layout {...props}>{element}</Layout>;
 };
