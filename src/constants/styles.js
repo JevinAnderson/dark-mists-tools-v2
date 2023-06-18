@@ -1,0 +1,3 @@
+const NAMESPACE = 'STYLES_';
+
+export const SET_DARK_MODE = `${NAMESPACE}SET_DARK_MODE`;

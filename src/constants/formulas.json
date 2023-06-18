@@ -1,0 +1,338 @@
+{
+  "wobamnowzi": {
+    "value": "hp +7, moves +14, spellpower +1, damroll +2",
+    "count": 5
+  },
+  "ganodecfaj": {
+    "value": "slow, saves vs breath -1, saves vs transport -5, mana +6",
+    "count": 5
+  },
+  "vuluftufe": {
+    "value": "detect evil, mana +13, hitroll +2, mana regen rate +1",
+    "count": 5
+  },
+  "jananino": {
+    "value": "AC -6, saves -1, invisible player, holypower +1",
+    "count": 5
+  },
+  "jewa ": {
+    "value": "hp +12, double weight, damroll +2, moves +3",
+    "count": 5
+  },
+  "voko ": {
+    "value": "holypower +1, detect good, AC -9, sight +1",
+    "count": 5
+  },
+  "ruja ": {
+    "value": "AC -10, saves vs transport -2, slow, moves +2",
+    "count": 5
+  },
+  "litolevi": {
+    "value": "spellpower +2, INT +1, saves vs spell -5, damroll +2",
+    "count": 5
+  },
+  "bog": {
+    "value": "invisible object, saves vs transport -5, AC -10, hp +9",
+    "count": 5
+  },
+  "nizudapa": {
+    "value": "AC -7, saves vs spell -1, saves vs transport -2, recovery",
+    "count": 5
+  },
+  "kalinewi": {
+    "value": "glow, damroll +3, STR +4, flying",
+    "count": 5
+  },
+  "tadanicad": {
+    "value": "pass door, hitroll +1, saves -5, CON +2",
+    "count": 5
+  },
+  "rotibvo": {
+    "value": " saves vs spell -5, saves -5, mana +7, WIS +5",
+    "count": 5
+  },
+  "gamiduzu": {
+    "value": "hp +15, spellpower +2, mana regen rate +1, saves vs spell -2",
+    "count": 5
+  },
+  "cag": {
+    "value": "immunity to lightning",
+    "count": 5
+  },
+  "rigevo  ": {
+    "value": "immunity to iron",
+    "count": 5
+  },
+  "putaste ": {
+    "value": "double weight, saves vs breath -3, saves vs spell -1, WIS +4",
+    "count": 5
+  },
+  "witutugmej": {
+    "value": "detect magic, STR +3, holypower +1, hitroll +2",
+    "count": 5
+  },
+  "dekefasut": {
+    "value": "saves vs maledict -2, sight +1, hp +7, recovery",
+    "count": 5
+  },
+  "dilusenek": {
+    "value": "mana regen rate +1, STR +5, saves vs transport -2, holypower +1",
+    "count": 5
+  },
+  "sasad  ": {
+    "value": "pass door, saves vs breath -2, spellpower +2, AC -2",
+    "count": 5
+  },
+  "not": {
+    "value": "saves vs breath -3, WIS +4, saves vs maledict -4, hp +5",
+    "count": 5
+  },
+  "nifajav ": {
+    "value": "moves +8, moves regen rate +1, DEX +2, saves vs transport -4  ",
+    "count": 5
+  },
+  "bupsaj": {
+    "value": " double weight, AC -8, STR +1, spellpower +2",
+    "count": 5
+  },
+  "jodvinpizo": {
+    "value": "damroll +1, curse, WIS +5, STR +4",
+    "count": 5
+  },
+  "komiwu ": {
+    "value": "saves vs spell -2, moves +13, damroll +3, moves regen rate +1",
+    "count": 5
+  },
+  "lajuvi": {
+    "value": "cannot remove, spellpower +1, saves vs breath -3",
+    "count": 5
+  },
+  "cusivba": {
+    "value": "CON +5, detect evil, mana +13, moves +10",
+    "count": 5
+  },
+  "towo": {
+    "value": "detect invis, sight +2, saves vs maledict -1, DEX +1",
+    "count": 5
+  },
+  "putaste": {
+    "value": "double weight, saves vs breath -3, saves vs spell -1, WIS +4",
+    "count": 5
+  },
+  "vampabsami": {
+    "value": "pass door, saves vs maledict -2, INT +2, AC -9",
+    "count": 5
+  },
+  "lapejizwa": {
+    "value": "curse, mana regen rate +1, saves -3, WIS +1",
+    "count": 5
+  },
+  "fimuzol": {
+    "value": "damroll +2, saves vs spell -3, hp +8, INT +1",
+    "count": 5
+  },
+  "sapu ": {
+    "value": "glow, saves vs transport -4, cannot drop, spellpower +1",
+    "count": 5
+  },
+  "waj": {
+    "value": "CON +5, saves vs maledict -3, saves vs spell -3, detect magic",
+    "count": 5
+  },
+  "les": {
+    "value": "detect invis, saves vs spell -3, damroll +2",
+    "count": 5
+  },
+  "kesovu": {
+    "value": "sight +2, holypower +1, recovery",
+    "count": 5
+  },
+  "bow ": {
+    "value": "mana regen rate +1, WIS +4, sight +2, saves vs transport -2",
+    "count": 5
+  },
+  "pigaso": {
+    "value": "mana regen rate +1, CON +3, saves vs spell -5, detect good",
+    "count": 5
+  },
+  "sewofu": {
+    "value": "burn proof, saves vs spell -3, saves vs breath -3, AC -1",
+    "count": 5
+  },
+  "vudemkos": {
+    "value": "saves vs transport -1, hp +8, recovery, DEX +2",
+    "count": 5
+  },
+  "pobefa": {
+    "value": "curse, saves -3, INT +3, saves vs maledict -2",
+    "count": 5
+  },
+  "jupogo": {
+    "value": " CON +1, AC -10, hitroll +1, flying",
+    "count": 5
+  },
+  "davoptu": {
+    "value": " detect good, saves -5, mana regen rate +1, saves vs breath -3",
+    "count": 5
+  },
+  "gidikize": {
+    "value": "DEX +4, double weight, mana regen rate +1, mana +2",
+    "count": 5
+  },
+  "numfimine": {
+    "value": "moves regen rate +1, detect good, saves vs spell -3, AC -8",
+    "count": 5
+  },
+  "mafku": {
+    "value": "CON +1, curse, moves regen rate +1, moves +12",
+    "count": 5
+  },
+  "disduwicib": {
+    "value": "saves vs breath -4, saves vs transport -2, burn proof, saves vs spell -4",
+    "count": 5
+  },
+  "murwabtili": {
+    "value": "spellpower +1, saves vs transport -1, hp +15, DEX +5",
+    "count": 5
+  },
+  "tifefonu": {
+    "value": "detect good, hitroll +2, saves vs spell -5, mana +11",
+    "count": 5
+  },
+  "gava": {
+    "value": "holypower +1, slow, saves vs maledict -2, AC -3",
+    "count": 5
+  },
+  "relile": {
+    "value": "slow, DEX +5, glow, INT +3",
+    "count": 5
+  },
+  "ziru": {
+    "value": "sight +2, curse, INT +2, saves vs maledict -5",
+    "count": 5
+  },
+  "ciguvto": {
+    "value": " detect evil, moves regen rate +1, DEX +4, moves +9",
+    "count": 5
+  },
+  "wuwsurnu": {
+    "value": "detect magic, damroll +2, saves -5, hp +12",
+    "count": 5
+  },
+  "tikoni": {
+    "value": "hitroll +1, saves vs breath -5, spellpower +1, saves vs transport -3",
+    "count": 5
+  },
+  "comfazmod": {
+    "value": "holypower +1, saves -3, nonmetal, mana +6",
+    "count": 5
+  },
+  "tugjiga": {
+    "value": "damroll +3, curse, sight +1, saves vs breath -1",
+    "count": 5
+  },
+  "dajwigetu": {
+    "value": "holypower +1, curse, damroll +1, mana regen rate +1",
+    "count": 5
+  },
+  "zodenurwas": {
+    "value": "WIS +3, damroll +3, saves vs spell -2, mana +15",
+    "count": 5
+  },
+  "fidanur": {
+    "value": "saves -1, half weight, damroll +2, hitroll +2",
+    "count": 5
+  },
+  "ga": {
+    "value": "sight +2, invisible object, mana +9, saves vs maledict -5",
+    "count": 5
+  },
+  "sago": {
+    "value": "CON +4, half weight, saves vs spell -1, sight +2",
+    "count": 5
+  },
+  "woco": {
+    "value": "mana regen rate +1, detect magic, holypower +1, spellpower +2",
+    "count": 5
+  },
+  "jariwi": {
+    "value": "INT +3, hitroll +3, half weight, moves +3",
+    "count": 5
+  },
+  "cesol ": {
+    "value": "saves vs spell -2, CON +5, curse, damroll +2",
+    "count": 5
+  },
+  "rumo": {
+    "value": "hp +7, saves vs transport -5, saves -5, INT +5",
+    "count": 5
+  },
+  "dijevik ": {
+    "value": "moves +7, CON +4, damroll +1, recovery",
+    "count": 5
+  },
+  "jacusuvo": {
+    "value": "weapon is flaming",
+    "count": 4
+  },
+  "faziwudgi": {
+    "value": "weapon has frost",
+    "count": 4
+  },
+  "vuwe": {
+    "value": "weapon is sharp",
+    "count": 4
+  },
+  "keztuzaczo": {
+    "value": "weapon is piercing",
+    "count": 4
+  },
+  "ritab": {
+    "value": " weapon is shocking",
+    "count": 4
+  },
+  "fudumo": {
+    "value": "weapon is poisonous",
+    "count": 4
+  },
+  "gornup": {
+    "value": "hitroll +3, hp +4, detect invis, INT +1",
+    "count": 5
+  },
+  "tapfikofjo": {
+    "value": "pass door, WIS +2, moves +3, saves vs breath -5",
+    "count": 5
+  },
+  "rizkirule": {
+    "value": " WIS +5, moves regen rate +1, saves vs spell -4, INT +2",
+    "count": 5
+  },
+  "jivozajaz": {
+    "value": "holypower +1, saves vs transport -3, mana +6, DEX +4",
+    "count": 5
+  },
+  "sij": {
+    "value": " DEX +5, damroll +2, mana +8, INT +1",
+    "count": 5
+  },
+  "webisi": {
+    "value": "holypower +1, saves vs spell -2, moves +3, slow",
+    "count": 5
+  },
+  "wasico  ": {
+    "value": "flying, damroll +1, saves -1, moves regen rate +1",
+    "count": 5
+  },
+  "jujkaduca": {
+    "value": "spellpower +2, hp +11, saves vs maledict -2, mana regen rate +1",
+    "count": 5
+  },
+  "bokoz": {
+    "value": " hum, damroll +3, saves vs maledict -5, saves -4",
+    "count": 4
+  },
+  "jiwajob": {
+    "value": "weapon is drowning",
+    "count": 4
+  }
+}
