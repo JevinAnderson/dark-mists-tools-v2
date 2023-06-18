@@ -3,8 +3,26 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Dark-Mists-Tools-V2`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Darkmist Tools`,
+    siteUrl: `https://dm.jevinanderson.com`,
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-google-gtag"]
+  plugins: [
+    "gatsby-plugin-sass",
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["368160022"],
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`poppins:300,400,500,600,700`],
+        display: "swap",
+      },
+    },
+  ],
 };
