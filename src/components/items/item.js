@@ -94,7 +94,7 @@ class Item extends PureComponent {
       <>
         <Card style={this.style()}>
           <Card.Body>
-            <Card.Text style={{ whiteSpace: "pre-line" }}>
+            <Card.Text >
               <DangerousSpan>{tag}</DangerousSpan>
             </Card.Text>
           </Card.Body>

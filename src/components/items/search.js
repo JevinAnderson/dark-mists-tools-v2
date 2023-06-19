@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Container from 'react-bootstrap/Container'
 
 // import Panel from "../panel/panel";
 import * as ItemSearchActions from "../../actions/item-search";

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import memoize from "lodash/memoize";
 import Container from "react-bootstrap/Container";
 
-// import Panel from '../panel/panel';
 import Item from "./item";
 
 const getWeightFromTag = memoize(function weightFromTag(tag) {
@@ -101,20 +100,16 @@ class List extends PureComponent {
   render() {
     const { items = [], user, editItem, removeItem } = this.props;
 
-    return (
-      <Container style={{ maxWidth: "660px" }}>
-        {items.map((item) => (
-          <Item
-            key={item.id}
-            user={user}
-            item={item}
-            editItem={editItem}
-            removeItem={removeItem}
-            filtered={this.isItemVisible(item)}
-          />
-        ))}
-      </Container>
-    );
+    return items.map((item) => (
+      <Item
+        key={item.id}
+        user={user}
+        item={item}
+        editItem={editItem}
+        removeItem={removeItem}
+        filtered={this.isItemVisible(item)}
+      />
+    ));
   }
 }
 
