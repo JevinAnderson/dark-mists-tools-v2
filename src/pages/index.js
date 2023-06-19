@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import "./items.scss";
 import * as itemActions from "../actions/items";
 import List from "../components/items/list";
 import Search from "../components/items/search";
 
-const IndexPage = ({ createItem, editItem, removeItem, fetchItems }) => {
+const IndexPage = ({ items, createItem, editItem, removeItem, fetchItems }) => {
   useEffect(fetchItems, []);
+
+  console.log(items);
 
   return (
     <main>
@@ -25,6 +26,4 @@ IndexPage.propTypes = {
   removeItem: PropTypes.func,
 };
 
-const mapStateToProps = (state, ownProps) => ownProps;
-
-export default connect(mapStateToProps, itemActions)(IndexPage);
+export default connect((state) => state, itemActions)(IndexPage);

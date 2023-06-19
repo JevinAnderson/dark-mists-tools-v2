@@ -1,10 +1,11 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import memoize from 'lodash/memoize';
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import memoize from "lodash/memoize";
+import Container from "react-bootstrap/Container";
 
-import Panel from '../panel/panel';
-import Item from './item';
+// import Panel from '../panel/panel';
+import Item from "./item";
 
 const getWeightFromTag = memoize(function weightFromTag(tag) {
   const found = tag.match(/Weight is (?<weight>[0-9]+\.?[0-9]*) pounds/i);
@@ -19,10 +20,12 @@ const getWeightFromTag = memoize(function weightFromTag(tag) {
 class List extends PureComponent {
   simpleSearch(item) {
     const {
-      item_search: { keyword }
+      item_search: { keyword },
     } = this.props;
 
-    return !keyword || item.tag.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
+    return (
+      !keyword || item.tag.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
+    );
   }
 
   advancedSearch(item) {
@@ -30,27 +33,29 @@ class List extends PureComponent {
       item_search: {
         keywords = [],
         exclusions = [],
-        keywordsSearchType = 'any',
-        pulsing = 'yes',
-        material = 'any',
+        keywordsSearchType = "any",
+        pulsing = "yes",
+        material = "any",
         weight,
-        weightType
-      }
+        weightType,
+      },
     } = this.props;
 
-    if (pulsing === 'no' && item.pulsing != '2') {
+    if (pulsing === "no" && item.pulsing != "2") {
       return false;
     }
 
-    if (material !== 'any' && item.material != material) {
+    if (material !== "any" && item.material != material) {
       return false;
     }
 
-    keywords = keywords.filter(keyword => keyword.trim());
+    keywords = keywords.filter((keyword) => keyword.trim());
     const tag = item.tag.toLowerCase();
 
-    exclusions = exclusions.filter(Boolean).map(exclusion => exclusion.toLowerCase());
-    if (exclusions.some(exclusion => tag.indexOf(exclusion) !== -1)) {
+    exclusions = exclusions
+      .filter(Boolean)
+      .map((exclusion) => exclusion.toLowerCase());
+    if (exclusions.some((exclusion) => tag.indexOf(exclusion) !== -1)) {
       return false;
     }
 
@@ -58,9 +63,9 @@ class List extends PureComponent {
       const parsedWeight = parseFloat(weight) || 0;
       const tagWeight = getWeightFromTag(item.tag);
       if (tagWeight !== null) {
-        if (weightType === '>' && tagWeight < parsedWeight) {
+        if (weightType === ">" && tagWeight < parsedWeight) {
           return false;
-        } else if (weightType === '<' && tagWeight > parsedWeight) {
+        } else if (weightType === "<" && tagWeight > parsedWeight) {
           return false;
         }
       }
@@ -68,12 +73,16 @@ class List extends PureComponent {
 
     if (keywords.length === 0) return true;
 
-    if (keywordsSearchType === 'any') {
-      if (keywords.every(keyword => tag.indexOf(keyword.toLowerCase()) === -1)) {
+    if (keywordsSearchType === "any") {
+      if (
+        keywords.every((keyword) => tag.indexOf(keyword.toLowerCase()) === -1)
+      ) {
         return false;
       }
     } else {
-      if (keywords.some(keyword => tag.indexOf(keyword.toLowerCase()) === -1)) {
+      if (
+        keywords.some((keyword) => tag.indexOf(keyword.toLowerCase()) === -1)
+      ) {
         return false;
       }
     }
@@ -93,8 +102,8 @@ class List extends PureComponent {
     const { items = [], user, editItem, removeItem } = this.props;
 
     return (
-      <Panel className="items__list">
-        {items.map(item => (
+      <Container style={{ maxWidth: "660px" }}>
+        {items.map((item) => (
           <Item
             key={item.id}
             user={user}
@@ -104,7 +113,7 @@ class List extends PureComponent {
             filtered={this.isItemVisible(item)}
           />
         ))}
-      </Panel>
+      </Container>
     );
   }
 }
@@ -114,14 +123,14 @@ List.propTypes = {
   keyword: PropTypes.string,
   user: PropTypes.object,
   editItem: PropTypes.func,
-  removeItem: PropTypes.func
+  removeItem: PropTypes.func,
 };
 
 const mapStateToProps = ({ items, item_search, user }, ownProps) => ({
   items,
   item_search,
   user,
-  ...ownProps
+  ...ownProps,
 });
 
 export default connect(mapStateToProps)(List);

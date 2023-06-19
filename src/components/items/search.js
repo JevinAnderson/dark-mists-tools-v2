@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-import './search.scss';
-import Panel from '../panel/panel';
-import * as ItemSearchActions from '../../actions/item-search';
-import Input from '../form-controls/input';
-import Button from '../buttons/default';
-import PrimaryButton from '../buttons/primary';
-import ModalEditor from './modal-editor';
-import AdvancedSearch from './advanced-search';
+// import Panel from "../panel/panel";
+import * as ItemSearchActions from "../../actions/item-search";
+// import Input from "../form-controls/input";
+// import Button from "../buttons/default";
+// import PrimaryButton from "../buttons/primary";
+// import ModalEditor from "./modal-editor";
+import AdvancedSearch from "./advanced-search";
 
-const UPDATE_KEYS = ['keyword'];
+const UPDATE_KEYS = ["keyword"];
 
 class Search extends Component {
   constructor(props) {
@@ -22,7 +21,7 @@ class Search extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (UPDATE_KEYS.some(key => nextProps[key] !== this.props[key])) {
+    if (UPDATE_KEYS.some((key) => nextProps[key] !== this.props[key])) {
       const state = this.mapPropsToState(nextProps);
 
       this.setState(state);
@@ -30,7 +29,7 @@ class Search extends Component {
   }
 
   onKeyPress = ({ key }) => {
-    if (key === 'Enter') {
+    if (key === "Enter") {
       this.update();
     }
   };
@@ -43,14 +42,14 @@ class Search extends Component {
     this.setState({ editing: false });
   };
 
-  updateItem = item => {
+  updateItem = (item) => {
     this.setState({ item });
   };
 
-  saveItem = item => {
+  saveItem = (item) => {
     this.setState({
       editing: false,
-      item: {}
+      item: {},
     });
 
     this.props.createItem(item);
@@ -75,30 +74,32 @@ class Search extends Component {
       return <AdvancedSearch />;
     }
 
-    return (
-      <Panel className="items__search">
-        <Input
-          type="text"
-          className="items__search__keyword-input"
-          value={this.state.keyword}
-          onChange={this.updateKeyword}
-          placeholder="Search"
-          onKeyPress={this.onKeyPress}
-        />{' '}
-        <Button onClick={this.update}>Submit</Button>{' '}
-        {this.state.editing && (
-          <ModalEditor
-            header="Create Item"
-            item={this.state.item}
-            open={this.state.editing}
-            close={this.stopEditing}
-            updateItem={this.saveItem}
-          />
-        )}
-        <Button onClick={this.props.toggleAdvancedSearch}>Advanced Search</Button>
-        {this.props.user && <PrimaryButton onClick={this.edit}>Create Item</PrimaryButton>}
-      </Panel>
-    );
+    return <div className="test">search</div>;
+
+    // return (
+    //   <Panel className="items__search">
+    //     <Input
+    //       type="text"
+    //       className="items__search__keyword-input"
+    //       value={this.state.keyword}
+    //       onChange={this.updateKeyword}
+    //       placeholder="Search"
+    //       onKeyPress={this.onKeyPress}
+    //     />{' '}
+    //     <Button onClick={this.update}>Submit</Button>{' '}
+    //     {this.state.editing && (
+    //       <ModalEditor
+    //         header="Create Item"
+    //         item={this.state.item}
+    //         open={this.state.editing}
+    //         close={this.stopEditing}
+    //         updateItem={this.saveItem}
+    //       />
+    //     )}
+    //     <Button onClick={this.props.toggleAdvancedSearch}>Advanced Search</Button>
+    //     {this.props.user && <PrimaryButton onClick={this.edit}>Create Item</PrimaryButton>}
+    //   </Panel>
+    // );
   };
 }
 
@@ -107,16 +108,13 @@ Search.propTypes = {
   showAdvancedSearch: PropTypes.bool,
   setKeyword: PropTypes.func,
   toggleAdvancedSearch: PropTypes.func,
-  createItem: PropTypes.func
+  createItem: PropTypes.func,
 };
 
 const mapStateToProps = ({ user, item_search }, ownProps) => ({
   user,
   ...item_search,
-  ...ownProps
+  ...ownProps,
 });
 
-export default connect(
-  mapStateToProps,
-  ItemSearchActions
-)(Search);
+export default connect(mapStateToProps, ItemSearchActions)(Search);

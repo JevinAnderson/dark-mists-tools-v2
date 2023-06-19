@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import { set } from '../utilities/actions';
 import { SET_ITEMS } from '../constants/items';
 
@@ -67,7 +69,7 @@ export const removeItem = id => (dispatch, getState) => {
     .remove()
     .then(() => {
       const { items: previousItems } = getState();
-      const nextItems = previousItems.filter(element => element.id != id);
+      const nextItems = previousItems.filter(element => element.id !== id);
       dispatch(setItems(nextItems));
     })
     .catch(console.log);
