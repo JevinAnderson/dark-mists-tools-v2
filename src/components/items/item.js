@@ -90,17 +90,18 @@ class Item extends PureComponent {
       state: { expanded, editing },
     } = this;
 
+    if (!this.props.filtered) {
+      return null;
+    }
+
     return (
-      <>
-        <Card style={this.style()}>
-          <Card.Body>
-            <Card.Text >
-              <DangerousSpan>{tag}</DangerousSpan>
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
-      </>
+      <Card style={this.style()} className="mb-4">
+        <Card.Body>
+          <Card.Text>
+            <DangerousSpan>{tag}</DangerousSpan>
+          </Card.Text>
+        </Card.Body>
+      </Card>
     );
 
     // return (

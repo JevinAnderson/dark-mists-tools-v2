@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Container from 'react-bootstrap/Container'
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
 
 // import Panel from "../panel/panel";
 import * as ItemSearchActions from "../../actions/item-search";
@@ -29,8 +33,10 @@ class Search extends Component {
     }
   }
 
-  onKeyPress = ({ key }) => {
-    if (key === "Enter") {
+  onKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      event.stopPropagation();
       this.update();
     }
   };
@@ -75,7 +81,41 @@ class Search extends Component {
       return <AdvancedSearch />;
     }
 
-    return <div className="test">search</div>;
+    return (
+      <Card>
+        <Card.Body>
+          <Form>
+            <Row className="align-items-center">
+              <Col xs="auto">
+                <Form.Control
+                  type="text"
+                  placeholder="Search"
+                  value={this.state.keyword}
+                  onChange={this.updateKeyword}
+                  onKeyDown={this.onKeyDown}
+                />
+              </Col>
+              <Col xs="auto">
+                <Button variant="outline-secondary" onClick={this.update}>
+                  Submit
+                </Button>
+              </Col>
+              <Col xs="auto">
+                <Button
+                  variant="outline-secondary"
+                  onClick={this.props.toggleAdvancedSearch}
+                >
+                  Advanced Search
+                </Button>
+              </Col>
+              <Col xs="auto">
+                <Button variant="outline-secondary">Create item</Button>
+              </Col>
+            </Row>
+          </Form>
+        </Card.Body>
+      </Card>
+    );
 
     // return (
     //   <Panel className="items__search">

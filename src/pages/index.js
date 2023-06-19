@@ -13,6 +13,7 @@ const IndexPage = ({ createItem, editItem, removeItem, fetchItems }) => {
   return (
     <Container style={{ maxWidth: "600px" }}>
       <main>
+        <br />
         <Search createItem={createItem} />
         <br />
         <List editItem={editItem} removeItem={removeItem} />
