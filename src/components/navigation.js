@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { connect } from "react-redux";
 
 import * as StyleActions from "../actions/styles";
+import Authentication from "./authentication";
 
 function Navigation({ darkMode, setDarkMode }) {
   useEffect(() => {
@@ -31,7 +32,7 @@ function Navigation({ darkMode, setDarkMode }) {
           <Nav className="me-auto">
             <Nav.Link href="/">Items</Nav.Link>
             <Nav.Link href="/enchanters">Enchanters</Nav.Link>
-            <Nav.Link href="#">Sign In</Nav.Link>
+            <Authentication />
             <NavDropdown title="Theme" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={() => setDarkMode(false)}>
                 Light Mode
