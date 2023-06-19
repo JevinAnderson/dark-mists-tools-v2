@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
 
 // import Panel from "react-bootstrap";
 import * as ItemSearchActions from "../../actions/item-search";
@@ -103,7 +106,21 @@ class AdvancedSearch extends Component {
     this.props.setMaterial(value);
   };
 
-  render = () => <div className="advanced-search">advanced search</div>;
+  render = () => (
+    <Card>
+      <Card className="m-3">
+        <Card.Body>
+          <Button
+            variant="outline-secondary"
+            onClick={this.props.toggleAdvancedSearch}
+          >
+            Simple Search
+          </Button>
+        </Card.Body>
+      </Card>
+      <Card className="m-3"><Card.Body>ok</Card.Body></Card>
+    </Card>
+  );
 
   // render = () => (
   //   <Panel className="items__advanced-search">

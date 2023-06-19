@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
-import './form.scss';
+// import './form.scss';
 import { merge } from '../../utilities/component';
 import { escapeHtml, revertEscapeHtml } from '../../utilities/sanitize';
 import { capitalizeFirstLetter } from '../../utilities/strings';

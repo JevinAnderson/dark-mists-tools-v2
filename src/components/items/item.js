@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import get from "lodash/get";
 import Card from "react-bootstrap/Card";
 
-import "./item.scss";
+// import "./item.scss";
 import { dangerous } from "../../utilities/component";
 import { DangerousSpan } from "../dangerous";
 import { escapeHtml, revertEscapeHtml } from "../../utilities/sanitize";
