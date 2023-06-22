@@ -10,7 +10,6 @@ import { createLogger } from "redux-logger";
 
 import "../styles/main.scss";
 import Navigation from "./navigation";
-import fb from "../utilities/firebase-mock";
 import rootReducer from "../reducers/root";
 import { loadState, saveState } from "../utilities/persistance";
 

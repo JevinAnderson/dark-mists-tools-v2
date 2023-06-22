@@ -17,7 +17,7 @@ import materials from "../../constants/materials";
 // import ListGroupItemText from "../list-group/list-group-item-text";
 // import DangerButton from "../buttons/danger";
 // import PrimaryButton from "../buttons/primary";
-// import ModalEditor from "./modal-editor";
+import ModalEditor from "./modal-editor";
 import deriveProps from "../higher-order-components/derive-props";
 import { formatDate } from "../../utilities/date";
 
@@ -161,6 +161,14 @@ class Item extends PureComponent {
                   edit
                 </Button>
               </ListGroup.Item>
+            )}
+            {editing && (
+              <ModalEditor
+                item={item}
+                open={editing}
+                close={this.stopEditing}
+                updateItem={this.updateItem}
+              />
             )}
           </>
         )}
