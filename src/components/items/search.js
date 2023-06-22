@@ -18,12 +18,10 @@ import AdvancedSearch from "./advanced-search";
 const UPDATE_KEYS = ["keyword"];
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = this.mapPropsToState(props);
-    this.state.item = {};
-  }
+  state = {
+    item: {},
+    keyword: this.props.keyword,
+  };
 
   componentWillReceiveProps(nextProps) {
     if (UPDATE_KEYS.some((key) => nextProps[key] !== this.props[key])) {
@@ -108,39 +106,16 @@ class Search extends Component {
                   Advanced Search
                 </Button>
               </Col>
-              <Col xs="auto">
-                <Button variant="outline-secondary">Create item</Button>
-              </Col>
+              {this.props.user && (
+                <Col xs="auto">
+                  <Button variant="primary">Create item</Button>
+                </Col>
+              )}
             </Row>
           </Form>
         </Card.Body>
       </Card>
     );
-
-    // return (
-    //   <Panel className="items__search">
-    //     <Input
-    //       type="text"
-    //       className="items__search__keyword-input"
-    //       value={this.state.keyword}
-    //       onChange={this.updateKeyword}
-    //       placeholder="Search"
-    //       onKeyPress={this.onKeyPress}
-    //     />{' '}
-    //     <Button onClick={this.update}>Submit</Button>{' '}
-    //     {this.state.editing && (
-    //       <ModalEditor
-    //         header="Create Item"
-    //         item={this.state.item}
-    //         open={this.state.editing}
-    //         close={this.stopEditing}
-    //         updateItem={this.saveItem}
-    //       />
-    //     )}
-    //     <Button onClick={this.props.toggleAdvancedSearch}>Advanced Search</Button>
-    //     {this.props.user && <PrimaryButton onClick={this.edit}>Create Item</PrimaryButton>}
-    //   </Panel>
-    // );
   };
 }
 

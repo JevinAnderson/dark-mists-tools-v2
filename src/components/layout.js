@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createLogger } from "redux-logger";
 
+import "../styles/main.scss";
 import Navigation from "./navigation";
 import fb from "../utilities/firebase-mock";
 import rootReducer from "../reducers/root";
@@ -24,10 +25,6 @@ store.subscribe(
     saveState(state);
   }, 1000)
 );
-
-if (typeof firebase === "undefined") {
-  window.firebase = fb;
-}
 
 const Layout = ({ children }) => (
   <Provider store={store}>

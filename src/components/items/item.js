@@ -1,7 +1,9 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import get from "lodash/get";
+import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
 // import "./item.scss";
 import { dangerous } from "../../utilities/component";
@@ -17,6 +19,7 @@ import materials from "../../constants/materials";
 // import PrimaryButton from "../buttons/primary";
 // import ModalEditor from "./modal-editor";
 import deriveProps from "../higher-order-components/derive-props";
+import { formatDate } from "../../utilities/date";
 
 // const Dangerous = ({ children }) => (
 //   <span dangerouslySetInnerHTML={dangerous(children)} />
@@ -53,7 +56,9 @@ import deriveProps from "../higher-order-components/derive-props";
 // };
 
 class Item extends PureComponent {
-  state = {};
+  state = {
+    expanded: true,
+  };
 
   toggleExpanded = () => {
     this.setState((prevState) => ({
@@ -95,70 +100,73 @@ class Item extends PureComponent {
     }
 
     return (
-      <Card style={this.style()} className="mb-4">
-        <Card.Body>
-          <Card.Text>
-            <DangerousSpan>{tag}</DangerousSpan>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <ListGroup style={this.style()} className="mb-4">
+        <ListGroup.Item>
+          <DangerousSpan>{tag}</DangerousSpan>
+        </ListGroup.Item>
+        <ListGroup.Item
+          className="pointer secondaryBackgroundOnHover"
+          onClick={this.toggleExpanded}
+        >
+          Details
+        </ListGroup.Item>
+        {expanded && (
+          <>
+            <ListGroup.Item>
+              <div className="fw-bold">Author</div>
+              {item.author}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Area</div>
+              {item.area}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Mob</div>
+              {item.mob}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Attack Noun</div>
+              {item.attack_noun}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Hidden Affects</div>
+              {item.hidden_affects}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Quest Info</div>
+              {item.quest_information}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Pulsing</div>
+              {pulsing[item.pulsing]}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Material</div>
+              {materials[item.material]}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Gate Point</div>
+              {item.gate_point}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Last Modified</div>
+              {formatDate(item.date_posted)}
+            </ListGroup.Item>
+            {user && (
+              <ListGroup.Item>
+                <Button variant="danger" className="me-2" onClick={this.remove}>
+                  delete
+                </Button>
+                <Button variant="primary" className="me-2" onClick={this.edit}>
+                  edit
+                </Button>
+              </ListGroup.Item>
+            )}
+          </>
+        )}
+      </ListGroup>
     );
 
-    // return (
-    //   <ListGroup className="items__item" style={this.style()}>
-    //     <ListGroupItem>
-    //       <ListGroupItemText>
-    //         <div className="items__item__tag" dangerouslySetInnerHTML={dangerous(tag)} />
-    //       </ListGroupItemText>
-    //     </ListGroupItem>
-    //     <ListGroupItem className="items__details-group-item" onClick={this.toggleExpanded}>
-    //       <ListGroupItemHeading>Details</ListGroupItemHeading>
-    //     </ListGroupItem>
-    //     {expanded && (
-    //       <div className="items__details__container">
-    //         <ListGroupItem>
-    //           <ListGroupItemHeading>Author</ListGroupItemHeading>
-    //           <ListGroupItemText>{item.author}</ListGroupItemText>
-    //         </ListGroupItem>
-    //         <ListGroupItem>
-    //           <ListGroupItemHeading>Area</ListGroupItemHeading>
-    //           <ListGroupItemText>
-    //             <Dangerous>{item.area}</Dangerous>
-    //           </ListGroupItemText>
-    //         </ListGroupItem>
-    //         <ListGroupItem>
-    //           <ListGroupItemHeading>Mob</ListGroupItemHeading>
-    //           <ListGroupItemText>
-    //             <Dangerous>{item.mob}</Dangerous>
-    //           </ListGroupItemText>
-    //         </ListGroupItem>
-    //         <ListGroupItem>
-    //           <ListGroupItemHeading>Attack Noun</ListGroupItemHeading>
-    //           <ListGroupItemText>
-    //             <Dangerous>{item.attack_noun}</Dangerous>
-    //           </ListGroupItemText>
-    //         </ListGroupItem>
-    //         <ListGroupItem>
-    //           <ListGroupItemHeading>Hidden Affects</ListGroupItemHeading>
-    //           <ListGroupItemText>
-    //             <Dangerous>{item.hidden_affects}</Dangerous>
-    //           </ListGroupItemText>
-    //         </ListGroupItem>
-    //         <ListGroupItem>
-    //           <ListGroupItemHeading>Quest info</ListGroupItemHeading>
-    //           <ListGroupItemText>
-    //             <Dangerous>{item.quest_information}</Dangerous>
-    //           </ListGroupItemText>
-    //         </ListGroupItem>
-    //         <ListGroupItem>
-    //           <ListGroupItemHeading>Pulsing</ListGroupItemHeading>
-    //           <ListGroupItemText>{pulsing[item.pulsing]}</ListGroupItemText>
-    //         </ListGroupItem>
-    //         <ListGroupItem>
-    //           <ListGroupItemHeading>Material</ListGroupItemHeading>
-    //           <ListGroupItemText>{materials[item.material]}</ListGroupItemText>
-    //         </ListGroupItem>
-    //         <ListGroupItem>
     //           <ListGroupItemHeading>Gate Point</ListGroupItemHeading>
     //           <ListGroupItemText>
     //             <Dangerous>{item.gate_point}</Dangerous>
