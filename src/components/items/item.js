@@ -119,6 +119,7 @@ class Item extends PureComponent {
             )}
             {editing && (
               <ModalEditor
+                header="Edit Item"
                 item={item}
                 open={editing}
                 close={this.stopEditing}

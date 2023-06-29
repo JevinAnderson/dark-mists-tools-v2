@@ -7,12 +7,8 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 
-// import Panel from "../panel/panel";
 import * as ItemSearchActions from "../../actions/item-search";
-// import Input from "../form-controls/input";
-// import Button from "../buttons/default";
-// import PrimaryButton from "../buttons/primary";
-// import ModalEditor from "./modal-editor";
+import ModalEditor from "./modal-editor";
 import AdvancedSearch from "./advanced-search";
 
 const UPDATE_KEYS = ["keyword"];
@@ -108,8 +104,19 @@ class Search extends Component {
               </Col>
               {this.props.user && (
                 <Col xs="auto">
-                  <Button variant="primary">Create item</Button>
+                  <Button variant="primary" onClick={this.edit}>
+                    Create item
+                  </Button>
                 </Col>
+              )}
+              {this.state.editing && (
+                <ModalEditor
+                  header="Create Item"
+                  item={this.state.item}
+                  open={this.state.editing}
+                  close={this.stopEditing}
+                  updateItem={this.saveItem}
+                />
               )}
             </Row>
           </Form>
