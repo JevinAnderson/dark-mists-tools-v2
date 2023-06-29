@@ -2,33 +2,19 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import ListGroup from "react-bootstrap/ListGroup";
 
-// import Panel from "react-bootstrap";
 import * as ItemSearchActions from "../../actions/item-search";
-// import Input from "../form-controls/input";
-// import InputGroup from "../form-controls/input-group";
-// import InputGroupAddon from "../form-controls/input-group-addon";
-// import Select from "../form-controls/select";
-// import Button from "../buttons/default";
-// import PrimaryButton from "../buttons/primary";
-// import DangerButton from "../buttons/danger";
-// import LabeledSelect from "../form-controls/labeled-select";
-// import Materials from "../../constants/materials";
+import Materials from "../../constants/materials";
 import throttle from "lodash/throttle";
-// import LabeledInput from "../form-controls/labeled-input";
-// import ListGroupItemHeading from "../list-group/list-group-item-heading";
 
 class AdvancedSearch extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      keywords: [...props.keywords],
-      exclusions: [...props.exclusions],
-    };
-  }
+  state = {
+    keywords: [...this.props.keywords],
+    exclusions: [...this.props.exclusions],
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.keywords !== this.props.keywords) {
@@ -107,80 +93,116 @@ class AdvancedSearch extends Component {
   };
 
   render = () => (
-    <Card>
-      <Card className="m-3">
-        <Card.Body>
+    <>
+      <ListGroup className="mb-2">
+        <ListGroup.Item>
           <Button
             variant="outline-secondary"
             onClick={this.props.toggleAdvancedSearch}
           >
             Simple Search
           </Button>
-        </Card.Body>
-      </Card>
-      <Card className="m-3"><Card.Body>ok</Card.Body></Card>
-    </Card>
+        </ListGroup.Item>
+      </ListGroup>
+      <ListGroup className="mb-2">
+        <ListGroup.Item>
+          {this.state.keywords.map((keyword, index) => (
+            <Form.Control
+              key={index}
+              className="mt-2"
+              data-keyword-index={index}
+              onChange={this.updateKeywords}
+              value={keyword}
+            />
+          ))}
+          <Form.Select
+            value={this.props.keywordsSearchType}
+            onChange={this.updateKeywordsSearchType}
+            className="mt-2"
+          >
+            <option value="all">Must have ALL Keywords</option>
+            <option value="any">May contain any Keyword</option>
+          </Form.Select>
+          <Button
+            variant="danger"
+            className="my-2 me-2"
+            onClick={this.removeKeyword}
+          >
+            Remove Keyword
+          </Button>
+          <Button onClick={this.addKeyword}>Add Keyword</Button>
+        </ListGroup.Item>
+      </ListGroup>
+      <ListGroup className="mb-2">
+        <ListGroup.Item>
+          <Form.Label>Do not include any of these:</Form.Label>
+          <br />
+          {this.state.exclusions.map((exclusion, index) => (
+            <Form.Control
+              key={index}
+              className="mt-2"
+              value={exclusion}
+              data-exclusion-index={index}
+              onChange={this.updateExclusions}
+            />
+          ))}
+          <Button
+            variant="danger"
+            className="my-2 me-2"
+            onClick={this.removeExclusion}
+          >
+            Remove Exclusion
+          </Button>
+          <Button onClick={this.addExclusion}>Add Exclusion</Button>
+        </ListGroup.Item>
+      </ListGroup>
+      <ListGroup>
+        <ListGroup.Item>
+          <InputGroup>
+            <InputGroup.Text>Include Pulsing Items</InputGroup.Text>
+            <Form.Select
+              value={this.props.pulsing}
+              onChange={this.updatePulsing}
+            >
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </Form.Select>
+          </InputGroup>
+          <InputGroup>
+            <InputGroup.Text>Filter by material</InputGroup.Text>
+            <Form.Select
+              value={this.props.material}
+              onChange={this.updateMaterial}
+            >
+              <option value="any" className="value">
+                Any material
+              </option>
+              {Materials.map((material, index) => (
+                <option key={material} value={index}>
+                  {material}
+                </option>
+              ))}
+            </Form.Select>
+          </InputGroup>
+          <InputGroup>
+            <InputGroup.Text>Filter by weight</InputGroup.Text>
+            <Form.Select
+              value={this.props.weightType}
+              onChange={(e) => this.props.setWeightType(e.target.value)}
+            >
+              <option value="<">Must be less than</option>
+              <option value=">">Must be greater than</option>
+            </Form.Select>
+            <Form.Control
+              type="number"
+              value={this.props.weight}
+              onChange={(e) => this.props.setWeight(e.target.value)}
+            />
+          </InputGroup>
+        </ListGroup.Item>
+      </ListGroup>
+    </>
   );
-
-  // render = () => (
-  //   <Panel className="items__advanced-search">
-  //     <Panel>
-  //       <Button onClick={this.props.toggleAdvancedSearch}>Simple Search</Button>
-  //     </Panel>
-  //     <Panel>
-  //       {this.state.keywords.map((keyword, index) => (
-  //         <Input key={index} data-keyword-index={index} onChange={this.updateKeywords} value={keyword} />
-  //       ))}
-  //       <div className="items__advanced-search__keyword-search-type-select">
-  //         <Select value={this.props.keywordsSearchType} onChange={this.updateKeywordsSearchType}>
-  //           <option value="all">Must have ALL Keywords</option>
-  //           <option value="any">May contain any Keyword</option>
-  //         </Select>
-  //       </div>
-  //       <DangerButton onClick={this.removeKeyword}>Remove Keyword</DangerButton>
-  //       <PrimaryButton onClick={this.addKeyword}>Add Keyword</PrimaryButton>
-  //     </Panel>
-  //     <Panel>
-  //       <ListGroupItemHeading>Do not include any of these:</ListGroupItemHeading>
-  //       <br />
-  //       {this.state.exclusions.map((exclusion, index) => (
-  //         <LabeledInput
-  //           key={index}
-  //           value={exclusion}
-  //           label="Do not include"
-  //           data-exclusion-index={index}
-  //           onChange={this.updateExclusions}
-  //         />
-  //       ))}
-  //       <DangerButton onClick={this.removeExclusion}>Remove Exclusion</DangerButton>
-  //       <PrimaryButton onClick={this.addExclusion}>Add Exclusion</PrimaryButton>
-  //     </Panel>
-  //     <Panel>
-  //       <LabeledSelect label="Include Pulsing Items" value={this.props.pulsing} onChange={this.updatePulsing}>
-  //         <option value="yes">Yes</option>
-  //         <option value="no">No</option>
-  //       </LabeledSelect>
-  //       <LabeledSelect label="Filter by material" value={this.props.material} onChange={this.updateMaterial}>
-  //         <option value="any" className="value">
-  //           Any material
-  //         </option>
-  //         {Materials.map((material, index) => (
-  //           <option key={material} value={index}>
-  //             {material}
-  //           </option>
-  //         ))}
-  //       </LabeledSelect>
-  //       <InputGroup>
-  //         <InputGroupAddon>Filter by weight</InputGroupAddon>
-  //         <Select value={this.props.weightType} onChange={e => this.props.setWeightType(e.target.value)}>
-  //           <option value="<">Must be less than</option>
-  //           <option value=">">Must be greater than</option>
-  //         </Select>
-  //         <Input type="number" value={this.props.weight} onChange={e => this.props.setWeight(e.target.value)} />
-  //       </InputGroup>
-  //     </Panel>
-  //   </Panel>
-  // );
 }
 
 AdvancedSearch.propTypes = {

@@ -4,12 +4,6 @@ import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-// import Modal from '../modal/modal';
-// import ModalHeader from '../modal/modal-header';
-// import ModalBody from '../modal/modal-body';
-// import ModalFooter from '../modal/modal-footer';
-// import DangerButton from '../buttons/danger';
-// import PrimaryButton from '../buttons/primary';
 import Form from "./form";
 
 const UPDATE_KEYS = ["item"];

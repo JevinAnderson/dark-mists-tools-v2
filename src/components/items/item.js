@@ -2,63 +2,18 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import get from "lodash/get";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
-// import "./item.scss";
-import { dangerous } from "../../utilities/component";
 import { DangerousSpan } from "../dangerous";
 import { escapeHtml, revertEscapeHtml } from "../../utilities/sanitize";
 import pulsing from "../../constants/pulsing-values";
 import materials from "../../constants/materials";
-// import ListGroup from "../list-group/list-group";
-// import ListGroupItem from "../list-group/list-group-item";
-// import ListGroupItemHeading from "../list-group/list-group-item-heading";
-// import ListGroupItemText from "../list-group/list-group-item-text";
-// import DangerButton from "../buttons/danger";
-// import PrimaryButton from "../buttons/primary";
 import ModalEditor from "./modal-editor";
 import deriveProps from "../higher-order-components/derive-props";
 import { formatDate } from "../../utilities/date";
 
-// const Dangerous = ({ children }) => (
-//   <span dangerouslySetInnerHTML={dangerous(children)} />
-// );
-
-// class DateTag extends PureComponent {
-//   getFormattedDate = () => {
-//     const { datePosted } = this.props;
-
-//     if (!datePosted) {
-//       return "Date posted not found...";
-//     }
-
-//     const date = new Date(datePosted);
-//     const day = date.getDate();
-//     const month = date.getMonth() + 1;
-//     const year = date.getFullYear();
-
-//     return `${month}/${day}/${year}`;
-//   };
-
-//   render = () => (
-//     <ListGroupItem>
-//       <ListGroupItemHeading>Last Modified</ListGroupItemHeading>
-//       <ListGroupItemText>
-//         <Dangerous>{this.getFormattedDate()}</Dangerous>
-//       </ListGroupItemText>
-//     </ListGroupItem>
-//   );
-// }
-
-// DateTag.propTypes = {
-//   datePosted: PropTypes.string,
-// };
-
 class Item extends PureComponent {
-  state = {
-    expanded: true,
-  };
+  state = {};
 
   toggleExpanded = () => {
     this.setState((prevState) => ({
@@ -174,24 +129,6 @@ class Item extends PureComponent {
         )}
       </ListGroup>
     );
-
-    //           <ListGroupItemHeading>Gate Point</ListGroupItemHeading>
-    //           <ListGroupItemText>
-    //             <Dangerous>{item.gate_point}</Dangerous>
-    //           </ListGroupItemText>
-    //         </ListGroupItem>
-    //         <DateTag datePosted={item.date_posted} />
-    //         {user && (
-    //           <ListGroupItem>
-    //             <DangerButton onClick={this.remove}>delete</DangerButton>{' '}
-    //             <PrimaryButton onClick={this.edit}>edit</PrimaryButton>
-    //           </ListGroupItem>
-    //         )}
-    //       </div>
-    //     )}
-    //     {editing && <ModalEditor item={item} open={editing} close={this.stopEditing} updateItem={this.updateItem} />}
-    //   </ListGroup>
-    // );
   }
 }
 
