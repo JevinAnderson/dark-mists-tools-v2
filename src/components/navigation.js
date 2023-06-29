@@ -31,7 +31,6 @@ function Navigation({ darkMode, setDarkMode }) {
         <Navbar.Collapse>
           <Nav className="me-auto">
             <Nav.Link href="/">Items</Nav.Link>
-            <Nav.Link href="/enchanters">Enchanters</Nav.Link>
             <Nav.Link href="/profile">Profile</Nav.Link>
             <NavDropdown title="Theme" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={() => setDarkMode(false)}>
