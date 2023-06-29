@@ -1,27 +1,29 @@
-import * as Constants from '../constants/item-search';
-import { merge } from '../utilities/component';
+import * as Constants from "../constants/item-search";
+import { merge } from "../utilities/component";
 
 const initialState = {
-  keyword: '',
-  keywords: [''],
-  keywordsSearchType: 'any',
+  area: "",
+  keyword: "",
+  keywords: [""],
+  keywordsSearchType: "any",
   exclusions: [],
   material: undefined,
   pulsing: undefined,
   showAdvancedSearch: false,
-  weight: '',
-  weightType: '<'
+  weight: "",
+  weightType: "<",
 };
 
 const SETTERS = {
-  [Constants.SET_KEYWORD]: 'keyword',
-  [Constants.SET_KEYWORDS]: 'keywords',
-  [Constants.SET_KEYWORDS_SEARCH_TYPE]: 'keywordsSearchType',
-  [Constants.SET_EXCLUSIONS]: 'exclusions',
-  [Constants.SET_MATERIAL]: 'material',
-  [Constants.SET_PULSING]: 'pulsing',
-  [Constants.SET_WEIGHT]: 'weight',
-  [Constants.SET_WEIGHT_TYPE]: 'weightType'
+  [Constants.SET_AREA]: "area",
+  [Constants.SET_KEYWORD]: "keyword",
+  [Constants.SET_KEYWORDS]: "keywords",
+  [Constants.SET_KEYWORDS_SEARCH_TYPE]: "keywordsSearchType",
+  [Constants.SET_EXCLUSIONS]: "exclusions",
+  [Constants.SET_MATERIAL]: "material",
+  [Constants.SET_PULSING]: "pulsing",
+  [Constants.SET_WEIGHT]: "weight",
+  [Constants.SET_WEIGHT_TYPE]: "weightType",
 };
 
 export default function itemSearchReducer(state = initialState, action) {

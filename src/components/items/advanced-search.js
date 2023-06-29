@@ -199,6 +199,14 @@ class AdvancedSearch extends Component {
               onChange={(e) => this.props.setWeight(e.target.value)}
             />
           </InputGroup>
+          <InputGroup>
+            <InputGroup.Text>Filter by Area</InputGroup.Text>
+            <Form.Control
+              type="text"
+              value={this.props.area}
+              onChange={(e) => this.props.setArea(e.target.value)}
+            />
+          </InputGroup>
         </ListGroup.Item>
       </ListGroup>
     </>

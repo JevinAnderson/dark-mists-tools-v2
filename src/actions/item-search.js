@@ -10,3 +10,4 @@ export const setPulsing = pulsing => set(Constants.SET_PULSING, pulsing);
 export const setWeight = weight => set(Constants.SET_WEIGHT, weight);
 export const setWeightType = weightType => set(Constants.SET_WEIGHT_TYPE, weightType);
 export const toggleAdvancedSearch = () => perform(Constants.TOGGLE_ADVANCED_SEARCH);
+export const setArea = area => set(Constants.SET_AREA, area);

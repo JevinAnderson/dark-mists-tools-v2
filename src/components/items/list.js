@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import memoize from "lodash/memoize";
-import Container from "react-bootstrap/Container";
+import get from "lodash/get";
 
 import Item from "./item";
 
@@ -30,6 +30,7 @@ class List extends PureComponent {
   advancedSearch(item) {
     let {
       item_search: {
+        area = "",
         keywords = [],
         exclusions = [],
         keywordsSearchType = "any",
@@ -68,6 +69,13 @@ class List extends PureComponent {
           return false;
         }
       }
+    }
+
+    if (
+      area &&
+      get(item, "area", "").toLowerCase().indexOf(area.toLowerCase()) === -1
+    ) {
+      return false;
     }
 
     if (keywords.length === 0) return true;
