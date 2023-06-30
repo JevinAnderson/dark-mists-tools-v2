@@ -23,7 +23,8 @@ class List extends PureComponent {
     } = this.props;
 
     return (
-      !keyword || item.tag.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
+      !keyword ||
+      get(item, "tag", "").toLowerCase().indexOf(keyword.toLowerCase()) !== -1
     );
   }
 
@@ -51,7 +52,7 @@ class List extends PureComponent {
     }
 
     keywords = keywords.filter((keyword) => keyword.trim());
-    const tag = item.tag.toLowerCase();
+    const tag = get(item, "tag", "").toLowerCase();
 
     exclusions = exclusions
       .filter(Boolean)
