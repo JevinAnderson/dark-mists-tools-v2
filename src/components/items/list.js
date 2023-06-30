@@ -35,6 +35,7 @@ class List extends PureComponent {
         exclusions = [],
         keywordsSearchType = "any",
         pulsing = "yes",
+        slot,
         material = "any",
         weight,
         weightType,
@@ -75,6 +76,10 @@ class List extends PureComponent {
       area &&
       get(item, "area", "").toLowerCase().indexOf(area.toLowerCase()) === -1
     ) {
+      return false;
+    }
+
+    if (slot && slot !== "-1" && !(get(item, "slot", "0") === slot)) {
       return false;
     }
 

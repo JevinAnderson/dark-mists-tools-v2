@@ -9,6 +9,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import * as ItemSearchActions from "../../actions/item-search";
 import Materials from "../../constants/materials";
 import throttle from "lodash/throttle";
+import SLOTS from "../../constants/slots";
 
 class AdvancedSearch extends Component {
   state = {
@@ -169,14 +170,12 @@ class AdvancedSearch extends Component {
             </Form.Select>
           </InputGroup>
           <InputGroup>
-            <InputGroup.Text>Filter by material</InputGroup.Text>
+            <InputGroup.Text>Filter by Material</InputGroup.Text>
             <Form.Select
               value={this.props.material}
               onChange={this.updateMaterial}
             >
-              <option value="any" className="value">
-                Any material
-              </option>
+              <option value="any">Any material</option>
               {Materials.map((material, index) => (
                 <option key={material} value={index}>
                   {material}
@@ -185,7 +184,7 @@ class AdvancedSearch extends Component {
             </Form.Select>
           </InputGroup>
           <InputGroup>
-            <InputGroup.Text>Filter by weight</InputGroup.Text>
+            <InputGroup.Text>Filter by Weight</InputGroup.Text>
             <Form.Select
               value={this.props.weightType}
               onChange={(e) => this.props.setWeightType(e.target.value)}
@@ -206,6 +205,20 @@ class AdvancedSearch extends Component {
               value={this.props.area}
               onChange={(e) => this.props.setArea(e.target.value)}
             />
+          </InputGroup>
+          <InputGroup>
+            <InputGroup.Text>Filter by Slot</InputGroup.Text>
+            <Form.Select
+              value={this.props.slot}
+              onChange={(e) => this.props.setSlot(e.target.value)}
+            >
+              <option value={-1}>Any slot</option>
+              {SLOTS.map((slot, index) => (
+                <option key={slot} value={index}>
+                  {slot}
+                </option>
+              ))}
+            </Form.Select>
           </InputGroup>
         </ListGroup.Item>
       </ListGroup>

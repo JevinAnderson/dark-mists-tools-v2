@@ -9,6 +9,7 @@ const initialState = {
   exclusions: [],
   material: undefined,
   pulsing: undefined,
+  slot: undefined,
   showAdvancedSearch: false,
   weight: "",
   weightType: "<",
@@ -22,6 +23,7 @@ const SETTERS = {
   [Constants.SET_EXCLUSIONS]: "exclusions",
   [Constants.SET_MATERIAL]: "material",
   [Constants.SET_PULSING]: "pulsing",
+  [Constants.SET_SLOT]: "slot",
   [Constants.SET_WEIGHT]: "weight",
   [Constants.SET_WEIGHT_TYPE]: "weightType",
 };
