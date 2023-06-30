@@ -12,6 +12,7 @@ import { capitalizeFirstLetter } from "../../utilities/strings";
 import MATERIALS from "../../constants/materials";
 import PULSING_INDICATORS from "../../constants/pulsing-indicators";
 import deriveProps from "../higher-order-components/derive-props";
+import SLOTS from "../../constants/slots";
 
 const NUMBER_MAP = {
   mats: true,
@@ -74,9 +75,7 @@ class ItemForm extends PureComponent {
   }
 
   render = () => {
-    const {
-      props: { children, item, tag },
-    } = this;
+    const { item, tag } = this.props;
 
     return (
       <Form>
@@ -115,6 +114,20 @@ class ItemForm extends PureComponent {
             data-item-key="mob"
             onChange={this.onChange}
           />
+        </InputGroup>
+        <InputGroup className="mb-1">
+          <InputGroup.Text>Slot</InputGroup.Text>
+          <Form.Select
+            value={get(item, "slot", 0)}
+            data-item-key="slot"
+            onChange={this.onChange}
+          >
+            {SLOTS.map((slot, index) => (
+              <option key={slot} value={index}>
+                {slot}
+              </option>
+            ))}
+          </Form.Select>
         </InputGroup>
         <InputGroup className="mb-1">
           <InputGroup.Text>Noun</InputGroup.Text>

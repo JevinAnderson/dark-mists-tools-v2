@@ -11,6 +11,7 @@ import materials from "../../constants/materials";
 import ModalEditor from "./modal-editor";
 import deriveProps from "../higher-order-components/derive-props";
 import { formatDate } from "../../utilities/date";
+import SLOTS from "../../constants/slots";
 
 class Item extends PureComponent {
   state = {};
@@ -78,6 +79,10 @@ class Item extends PureComponent {
             <ListGroup.Item>
               <div className="fw-bold">Mob</div>
               {item.mob}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="fw-bold">Slot</div>
+              {SLOTS[get(item, "slot", 0)]}
             </ListGroup.Item>
             <ListGroup.Item>
               <div className="fw-bold">Attack Noun</div>
