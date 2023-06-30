@@ -36,7 +36,7 @@ class ItemForm extends PureComponent {
     );
   }
 
-  materialFromTag(tag) {
+  materialFromTag(tag = "") {
     let material = (tag.match(/Material is (.*)\./g) || [""])[0]
       .replace("Material is ", "")
       .replace(".", "");

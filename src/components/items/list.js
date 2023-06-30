@@ -63,7 +63,7 @@ class List extends PureComponent {
 
     if (weight) {
       const parsedWeight = parseFloat(weight) || 0;
-      const tagWeight = getWeightFromTag(item.tag);
+      const tagWeight = getWeightFromTag(get(item, "tag", ""));
       if (tagWeight !== null) {
         if (weightType === ">" && tagWeight < parsedWeight) {
           return false;
