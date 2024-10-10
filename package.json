@@ -13,7 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "ship": "rm -rf docs && mv public docs"
+    "ship": "rm -rf docs && mv public docs && echo \"dm.jevinanderson.com\" > docs/CNAME"
   },
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",
