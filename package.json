@@ -12,26 +12,27 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "ship": "rm -rf docs && mv public docs"
   },
   "dependencies": {
-    "bootstrap": "^5.3.0",
-    "gatsby": "^5.11.0",
+    "@redux-devtools/extension": "^3.3.0",
+    "@reduxjs/toolkit": "^2.2.8",
+    "bootstrap": "^5.3.3",
+    "gatsby": "^5.13.7",
     "gatsby-plugin-google-fonts": "^1.0.1",
-    "gatsby-plugin-google-gtag": "^5.11.0",
-    "gatsby-plugin-manifest": "^5.11.0",
-    "gatsby-plugin-sass": "^6.11.0",
+    "gatsby-plugin-google-gtag": "^5.13.1",
+    "gatsby-plugin-manifest": "^5.13.1",
+    "gatsby-plugin-sass": "^6.13.1",
     "lodash": "^4.17.21",
-    "prettier": "^2.8.8",
+    "prettier": "^3.3.3",
     "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.7.4",
-    "react-dom": "^18.2.0",
-    "react-redux": "^8.1.0",
-    "redux": "^4.2.1",
-    "redux-devtools-extension": "^2.13.9",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.5",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.1.2",
+    "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.4.2",
-    "sass": "^1.63.4"
+    "sass": "^1.79.4"
   }
 }

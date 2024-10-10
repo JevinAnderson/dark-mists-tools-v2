@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdark_mists_tools_v2=self.webpackChunkdark_mists_tools_v2||[]).push([[935],{4671:function(e,t,l){l.r(t);var s=l(6540),n=l(3048);t.default=()=>s.createElement(n.A,{style:{maxWidth:"600px"}},s.createElement("main",null,s.createElement("h1",null,"Coming soon?")))}}]);
+//# sourceMappingURL=component---src-pages-builder-index-js-81e95eaf15e77321d4c5.js.map

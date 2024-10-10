@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const DangerousSpan = ({ children, style = {}, ...rest }) => (
+export const DangerousSpan = ({ children = "", style = {}, ...rest }) => (
   <span
     {...rest}
     style={{ whiteSpace: "pre-line", ...style }}
@@ -13,4 +13,3 @@ DangerousSpan.propTypes = {
   children: PropTypes.string,
 };
 
-DangerousSpan.defaultProps = { children: "" };

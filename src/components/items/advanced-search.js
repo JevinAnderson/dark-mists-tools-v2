@@ -5,11 +5,14 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import ListGroup from "react-bootstrap/ListGroup";
+import { debounce } from 'lodash'
 
 import * as ItemSearchActions from "../../actions/item-search";
 import Materials from "../../constants/materials";
 import throttle from "lodash/throttle";
 import SLOTS from "../../constants/slots";
+
+export const DEFAULT_DEBOUNCE_WAIT = 500;
 
 class AdvancedSearch extends Component {
   state = {
@@ -17,7 +20,7 @@ class AdvancedSearch extends Component {
     exclusions: [...this.props.exclusions],
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.keywords !== this.props.keywords) {
       this.setState({
         keywords: [...nextProps.keywords],
@@ -36,14 +39,14 @@ class AdvancedSearch extends Component {
     this.setStateKeywords(keywords);
   };
 
-  updateKeywords = ({ target }) => {
+  updateKeywords = debounce(({ target }) => {
     const index = parseInt(target.getAttribute("data-keyword-index"), 10);
     const keyword = target.value;
     const keywords = [...this.props.keywords];
     keywords.splice(index, 1, keyword);
 
     this.setStateKeywords(keywords);
-  };
+  }, DEFAULT_DEBOUNCE_WAIT);
 
   addExclusion = () => {
     this.setStateExclusions([...this.state.exclusions, ""]);
@@ -55,7 +58,7 @@ class AdvancedSearch extends Component {
     );
   };
 
-  updateExclusions = ({ target }) => {
+  updateExclusions = debounce(({ target }) => {
     const index = parseInt(target.getAttribute("data-exclusion-index"), 10);
     console.log("updateExclusions index", index);
     const exclusion = target.value;
@@ -63,7 +66,7 @@ class AdvancedSearch extends Component {
     exclusions.splice(index, 1, exclusion);
 
     this.setStateExclusions(exclusions);
-  };
+  }, DEFAULT_DEBOUNCE_WAIT);
 
   setStateExclusions = (exclusions) => {
     this.setState({ exclusions }, this.setStoreExclusions);
@@ -93,6 +96,14 @@ class AdvancedSearch extends Component {
     this.props.setMaterial(value);
   };
 
+  setArea = debounce(({ target: { value } }) => {
+    this.props.setArea(value);
+  }, DEFAULT_DEBOUNCE_WAIT);
+
+  setWeight = debounce(({ target: { value } }) => {
+    this.props.setWeight(value);
+  }, DEFAULT_DEBOUNCE_WAIT);
+
   render = () => (
     <>
       <ListGroup className="mb-2">
@@ -113,7 +124,7 @@ class AdvancedSearch extends Component {
               className="mt-2"
               data-keyword-index={index}
               onChange={this.updateKeywords}
-              value={keyword}
+              defaultValue={keyword}
             />
           ))}
           <Form.Select
@@ -142,7 +153,7 @@ class AdvancedSearch extends Component {
             <Form.Control
               key={index}
               className="mt-2"
-              value={exclusion}
+              defaultValue={exclusion}
               data-exclusion-index={index}
               onChange={this.updateExclusions}
             />
@@ -194,16 +205,16 @@ class AdvancedSearch extends Component {
             </Form.Select>
             <Form.Control
               type="number"
-              value={this.props.weight}
-              onChange={(e) => this.props.setWeight(e.target.value)}
+              defaultValue={this.props.weight}
+              onChange={this.setWeight}
             />
           </InputGroup>
           <InputGroup>
             <InputGroup.Text>Filter by Area</InputGroup.Text>
             <Form.Control
               type="text"
-              value={this.props.area}
-              onChange={(e) => this.props.setArea(e.target.value)}
+              defaultValue={this.props.area}
+              onChange={this.setArea}
             />
           </InputGroup>
           <InputGroup>
