@@ -1,5 +1,9 @@
 /* eslint-disable no-undef */
-import React, { Component, useState } from "react";
+/* eslint-disable jsx-a11y/no-autofocus */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";

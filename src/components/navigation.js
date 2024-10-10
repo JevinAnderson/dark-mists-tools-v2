@@ -40,6 +40,7 @@ function Navigation({ darkMode, setDarkMode }) {
                 Dark Mode
               </NavDropdown.Item>
             </NavDropdown>
+            {/* <Nav.Link href="/builder">Builder</Nav.Link> */}
             <Authentication />
           </Nav>
         </Navbar.Collapse>

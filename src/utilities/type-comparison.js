@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export const type = a => Object.prototype.toString.call(a);
 
 export const Types = {

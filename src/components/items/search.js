@@ -19,7 +19,7 @@ class Search extends Component {
     keyword: this.props.keyword,
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (UPDATE_KEYS.some((key) => nextProps[key] !== this.props[key])) {
       const state = this.mapPropsToState(nextProps);
 

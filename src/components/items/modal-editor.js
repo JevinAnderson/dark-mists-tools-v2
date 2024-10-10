@@ -11,7 +11,7 @@ const UPDATE_KEYS = ["item"];
 class ModalEditor extends PureComponent {
   state = ModalEditor.mapPropsToState(this.props);
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (UPDATE_KEYS.some((key) => nextProps[key] !== this.props[key])) {
       const state = ModalEditor.mapPropsToState(nextProps);
 
@@ -36,7 +36,7 @@ class ModalEditor extends PureComponent {
 
   render() {
     const {
-      props: { header, open, close },
+      props: { header = "Edit Item", open, close },
       state: { item },
       updateItem,
       save,
@@ -66,10 +66,6 @@ ModalEditor.propTypes = {
   open: PropTypes.bool,
   close: PropTypes.func,
   updateItem: PropTypes.func,
-};
-
-ModalEditor.defaultProps = {
-  header: "Edit Item",
 };
 
 export default ModalEditor;

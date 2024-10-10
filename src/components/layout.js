@@ -1,22 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Container from "react-bootstrap/Container";
-import Thunk from "redux-thunk";
 import throttle from "lodash/throttle";
-import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { configureStore } from '@reduxjs/toolkit'
 import { createLogger } from "redux-logger";
 
 import "../styles/main.scss";
 import Navigation from "./navigation";
-import rootReducer from "../reducers/root";
 import { loadState, saveState } from "../utilities/persistance";
 
+import items from '../reducers/items';
+import item_search from '../reducers/item-search';
+import formula_search from '../reducers/formula-search';
+import loader from '../reducers/loader';
+import styles from '../reducers/styles';
+import user from '../reducers/user';
+
 const Logger = createLogger({ collapsed: true });
-const enhancer = composeWithDevTools(applyMiddleware(Thunk, Logger));
 const initialState = loadState();
-const store = createStore(rootReducer, initialState, enhancer);
+const store = configureStore({
+  reducer: { items, item_search, loader, user, styles, formula_search },
+  preloadedState: initialState,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+      actionCreatorCheck: false
+    }).concat(Logger),
+  devTools: true,
+});
+
 store.subscribe(
   throttle(() => {
     const state = store.getState();
@@ -36,6 +50,5 @@ Layout.propTypes = {
   children: PropTypes.node,
 };
 
-Layout.defaultProps = {};
 
 export default Layout;

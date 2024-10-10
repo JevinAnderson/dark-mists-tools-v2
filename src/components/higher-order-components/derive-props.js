@@ -13,7 +13,7 @@ const deriveProps = (derive, updatePaths) => WrappedComponent => {
       this.state = derive(props);
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
       if (this.shouldDeriveNewProps(nextProps)) {
         const state = derive(nextProps);
 
