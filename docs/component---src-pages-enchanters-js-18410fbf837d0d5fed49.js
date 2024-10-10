@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdark_mists_tools_v2=self.webpackChunkdark_mists_tools_v2||[]).push([[660],{5956:function(e,t,l){l.r(t);var s=l(6540),n=l(3048);t.default=()=>s.createElement(n.A,{style:{maxWidth:"600px"}},s.createElement("main",null,s.createElement("h1",null,"Coming soon?")))}}]);
+//# sourceMappingURL=component---src-pages-enchanters-js-18410fbf837d0d5fed49.js.map
