@@ -9,6 +9,7 @@ import { createLogger } from "redux-logger";
 import "../styles/main.scss";
 import Navigation from "./navigation";
 import { loadState, saveState } from "../utilities/persistance";
+import Footer from "./footer";
 
 import items from '../reducers/items';
 import item_search from '../reducers/item-search';
@@ -43,6 +44,7 @@ const Layout = ({ children }) => (
   <Provider store={store}>
     <Navigation />
     <Container>{children}</Container>
+    <Footer />
   </Provider>
 );
 
